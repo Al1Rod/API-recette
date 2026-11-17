@@ -59,3 +59,9 @@ export async function chercherUneRecette(id) {
     }
     return nettoyer(donnees.meals[0])
 }
+
+export async function recetteAleatoire() {
+    const response = await fetch(BASE + '/random.php')
+    const donnees = await response.json()
+    return nettoyer(donnees.meals[0])
+}

@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { chercherRecettes, chercherUneRecette } from '../services/mealdb.service.js'
+import { chercherRecettes, chercherUneRecette, recetteAleatoire } from '../services/mealdb.service.js'
 
 const router = Router()
 
@@ -16,7 +16,12 @@ router.get('/', async (req, res) => {
     res.json(recettes)
 })
 
-router.get('/:id', async (req, res) => {
+router.get('/aleatoire', async (req, res) => {
+    const recette = await recetteAleatoire()
+    res.json(recette)
+})
+
+router.get('/:id',async (req, res) => {
     const recette = await chercherUneRecette(req.params.id)
 
     if (recette === null) {

@@ -49,3 +49,13 @@ export async function chercherRecettes(nom) {
     }
     return donnees.meals.map(nettoyer)
 }
+
+export async function chercherUneRecette(id) {
+    const response = await fetch(BASE + '/lookup.php?i=' + id)
+    const donnees = await response.json()
+
+    if (!Array.isArray(donnees.meals)) {
+        return null
+    }
+    return nettoyer(donnees.meals[0])
+}

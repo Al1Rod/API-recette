@@ -37,9 +37,28 @@ L'API est disponible sur `http://localhost:3000`.
 | GET | `/api/recettes/:id` | Renvoie une recette par son id |
 | GET | `/api/stats?nom=chicken` | Statistiques sur les recettes trouvées |
 
+## Exemple de réponse
+
+`GET /api/recettes/52772`
+
+```json
+{
+  "id": "52772",
+  "nom": "Teriyaki Chicken Casserole",
+  "categorie": "Chicken",
+  "origine": "Japanese",
+  "nbIngredients": 9,
+  "ingredients": [
+    { "nom": "soy sauce", "quantite": "3/4 cup" },
+    { "nom": "water", "quantite": "1/2 cup" }
+  ]
+}
+```
 
 ## Gestion des erreurs
 
+| Code | Cas |
+|---|---|
 | 404 | Route inconnue ou recette introuvable |
 | 500 | Erreur serveur |
 

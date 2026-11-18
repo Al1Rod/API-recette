@@ -4,7 +4,7 @@
   "description": "API qui reformate les recettes de TheMealDB",
   "main": "serveur.js",
   "scripts": {
-    "start": "node serveur.js"
+    "dev": "node serveur.js"
   },
   "keywords": [],
   "type": "module",

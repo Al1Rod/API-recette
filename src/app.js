@@ -1,5 +1,7 @@
 import express from 'express'
 import cors from 'cors'
+import recettesRoute from './routes/recettes.routes.js'
+import statsRoute from './routes/stats.routes.js'
 
 const app = express()
 app.use(cors())
@@ -7,6 +9,9 @@ app.use(cors())
 app.get('/health', (req, res) => {
     res.json({ version: '1.0.0' })
 })
+
+app.use('/api/recettes', recettesRoute)
+app.use('/api/stats', statsRoute)
 
 
 app.use((req, res) => {
